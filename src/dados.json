@@ -19,8 +19,5 @@
   "LNG": "",
   "BASE_URL": "https://fielsolucoessp-cmyk.github.io/escola-site/",
   "PORTAL_URL": "https://fielsolucoessp-cmyk.github.io/fiel-seguranca/",
-  "SUPABASE_URL": "https://qffqahrsmgqgxuzgrdsh.supabase.co",
-  "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmZnFhaHJzbWdxZ3h1emdyZHNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxODM5MTQsImV4cCI6MjEwNzc1OTkxNH0.VLJR5L7CHs5zVbNKkvkY7KEe5F-Vz_KQmoP3G2jAEI0",
-  "ESCOLA_SLUG": "rondon",
   "INSTRUTORES": []
 }

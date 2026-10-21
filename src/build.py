@@ -176,8 +176,6 @@ def pagina(arquivo, titulo, descricao, corpo, ld=None, banner=None):
 <div class="rodape-fim"><div class="wrap"><span>© {date.today().year} {e(NOME)}. Todos os direitos reservados. <a href="{e(PORTAL)}privacidade.html">Privacidade</a></span><span>FIEL Soluções em Segurança Privada</span></div></div>
 </footer>
 <a class="zap-flut" href="{e(zap_link())}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">{I["zap"]}</a>
-<script>window.SITE={{supabaseUrl:{json.dumps(D["SUPABASE_URL"])},anonKey:{json.dumps(D["SUPABASE_ANON_KEY"])},slug:{json.dumps(D["ESCOLA_SLUG"])},portal:{json.dumps(PORTAL)},whatsapp:{json.dumps(D["WHATSAPP"])}}};</script>
-<script src="assets/site.js" defer></script>
 </body>
 </html>
 '''
@@ -230,7 +228,7 @@ PASSOS = f'''<ol class="passos">
 <li><span class="ico">{I["formatura"]}</span><b>Aulas e certificado</b><p>Ao concluir, seu curso é registrado na Polícia Federal.</p></li>
 </ol>'''
 
-SEM_TURMA = f'<div class="sem-turma"><p>As datas das próximas turmas aparecem aqui assim que são abertas. Para saber agora, chame no WhatsApp.</p>{btn_zap("Olá! Quais as próximas turmas?", "Consultar turmas")}</div>'
+SEM_TURMA = f'<div class="sem-turma"><p>Abrimos turmas de formação, atualização e aperfeiçoamento ao longo do ano. Chame no WhatsApp para saber as datas, os turnos e as vagas da próxima turma.</p>{btn_zap("Olá! Quais as próximas turmas?", "Consultar turmas")}</div>'
 
 def chamada(txt='Garanta sua vaga na próxima turma', msg='Olá! Quero garantir minha vaga na próxima turma.'):
     return f'<section class="chamada"><div class="wrap"><h2>{txt}</h2><div class="acoes">{btn_zap(msg, "Chamar no WhatsApp", "btn-azul")}</div></div></section>'
@@ -286,8 +284,8 @@ def build():
 </div></section>
 
 <section class="secao azul"><div class="wrap">
-{tit("Matrículas abertas", "Próximas turmas", "Datas atualizadas direto do sistema da escola.")}
-<div class="turmas" data-turmas data-limite="3">{SEM_TURMA}</div>
+{tit("Matrículas abertas", "Próximas turmas", "Consulte as datas da próxima turma no WhatsApp.")}
+<div class="turmas">{SEM_TURMA}</div>
 <div class="acoes" style="margin-top:2rem"><a class="btn btn-borda" href="turmas.html">Ver todas as turmas</a></div>
 </div></section>
 
@@ -370,10 +368,8 @@ def build():
 <p class="nota" style="margin-top:2.5rem;max-width:80ch">Os cursos seguem a Lei 14.967/2024 (Estatuto da Segurança Privada), o Decreto 13.012/2026 e as portarias da Polícia Federal. Desde 2026 a antiga reciclagem se chama atualização, e as extensões se chamam aperfeiçoamento.</p>
 </div></section>
 <section class="secao"><div class="wrap">
-{tit("Cursos com turma nesta escola", "Carga horária e validade", "Informações do cadastro oficial da escola.")}
-<div class="tab-wrap"><table class="tab-cursos"><thead><tr><th>Sigla</th><th>Curso</th><th>Carga horária</th><th>Validade</th></tr></thead>
-<tbody data-cursos><tr><td colspan="4" style="color:var(--texto-2)">Consultando o cadastro da escola. Se não carregar, chame no WhatsApp.</td></tr></tbody></table></div>
-<div class="acoes" style="margin-top:2rem">{btn_pre()}{btn_zap("Olá! Quero saber mais sobre os cursos.")}</div>
+{tit("Matrícula", "Quer fazer um destes cursos?", "Faça a pré-matrícula pelo celular ou chame no WhatsApp para saber valores e datas.")}
+<div class="acoes">{btn_pre()}{btn_zap("Olá! Quero saber mais sobre os cursos.")}</div>
 </div></section>
 {chamada()}
 ''', [cursos_ld], ('Cursos', 'Cursos para vigilantes', 'Formação, atualização (antiga reciclagem) e aperfeiçoamentos (antigas extensões), conforme as normas da Polícia Federal.', 'banner-cursos'))
@@ -383,12 +379,12 @@ def build():
         f'Próximas Turmas do Curso de Vigilante em Rondonópolis | {NOME}',
         'Datas, turnos e vagas das próximas turmas de formação e atualização de vigilantes em Rondonópolis/MT. Garanta sua vaga pela pré-matrícula online.',
         f'''<section class="secao cinza"><div class="wrap">
-{tit("Matrículas abertas", "Turmas com inscrições abertas", "As datas vêm direto do sistema da escola e se atualizam sozinhas.")}
-<div class="turmas" data-turmas>{SEM_TURMA}</div>
+{tit("Matrículas abertas", "Turmas com inscrições abertas", "Abrimos novas turmas ao longo do ano.")}
+<div class="turmas">{SEM_TURMA}</div>
 </div></section>
 <section class="secao"><div class="wrap">{tit("Passo a passo", "Como garantir sua vaga", "", True)}{PASSOS}</div></section>
 {chamada()}
-''', None, ('Turmas', 'Próximas turmas', 'Confira as datas, os turnos e as vagas das turmas abertas.', 'banner-turmas'))
+''', None, ('Turmas', 'Próximas turmas', 'Consulte as datas, os turnos e as vagas da próxima turma.', 'banner-turmas'))
 
     # ===== COMO SER VIGILANTE =====
     req = ['Ser brasileiro, nato ou naturalizado', 'Ter no mínimo 21 anos', 'Ter ensino fundamental completo (9º ano)',
